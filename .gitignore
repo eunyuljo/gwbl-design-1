@@ -1,0 +1,81 @@
+# Terraform 관련 파일들
+.terraform/
+.terraform.lock.hcl
+terraform.tfstate
+terraform.tfstate.backup
+*.tfplan
+*.tfstate
+.terraformrc
+terraform.rc
+
+# 환경별 설정 파일들 (보안상 git에서 제외)
+terraform.tfvars
+*.auto.tfvars
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# 로컬 개발 환경 파일들
+.env
+.env.local
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# AWS 관련 설정 파일들 (보안상 제외)
+.aws/
+aws-credentials.json
+*.pem
+*.key
+
+# 로그 파일들
+*.log
+logs/
+tmp/
+
+# macOS 관련
+.DS_Store
+
+# Windows 관련
+Thumbs.db
+Desktop.ini
+
+# 임시 파일들
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# IDE 관련 파일들
+.vscode/settings.json
+.vscode/launch.json
+.idea/workspace.xml
+*.sublime-*
+
+# 문서 생성 임시 파일들
+*.aux
+*.fdb_latexmk
+*.fls
+*.out
+*.toc
+
+# 압축 파일들
+*.zip
+*.tar.gz
+*.rar
+
+# ISMS 평가 관련 임시 파일들
+compliance-reports/
+audit-logs/
+assessment-results/
+
+# CloudFormation 스택 백업
+cf-templates-backup/
+
+# 스크립트 실행 결과 파일들
+script-output/
+metrics-data/
+monitoring-results/
