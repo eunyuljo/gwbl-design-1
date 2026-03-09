@@ -18,7 +18,7 @@ resource "aws_route_table" "igw_ingress" {
 resource "aws_route_table_association" "igw_ingress" {
   for_each = local.consumer_vpcs
 
-  gateway_id     = module.consumer_vpc[each.key].igw_id
+  gateway_id     = aws_internet_gateway.consumer[each.key].id
   route_table_id = aws_route_table.igw_ingress[each.key].id
 }
 
@@ -32,7 +32,7 @@ resource "aws_vpc_endpoint" "gwlb" {
   vpc_id            = module.consumer_vpc[each.value.vpc_key].vpc_id
   service_name      = aws_vpc_endpoint_service.gwlb.service_name
   vpc_endpoint_type = "GatewayLoadBalancer"
-  subnet_ids        = [module.consumer_vpc[each.value.vpc_key].public_subnets[each.value.az_index]]
+  subnet_ids        = [aws_subnet.consumer_public[each.key].id]
 
   tags = merge(var.common_tags, {
     Name = "${each.value.vpc_key}-GWLB-Endpoint-${var.availability_zones[each.value.az_index]}"
